@@ -3,7 +3,9 @@
 #include <string>
 
 double cal(const std::string& fun, const std::vector<double>& params) {
+    
     if (params.empty()) {
+        
         throw std::invalid_argument("Parameter list is empty");
     }
 
@@ -13,12 +15,14 @@ double cal(const std::string& fun, const std::vector<double>& params) {
         for (size_t i = 1; i < params.size(); ++i) {
             result += params[i];
         }
-    } else if (fun == "minus") {
+    } 
+    else if (fun == "minus") {
         
         for (size_t i = 1; i < params.size(); ++i) {
             result -= params[i];
         }
-    } else {
+    } 
+    else {
         throw std::invalid_argument("Invalid operation");
     }
     return result;
@@ -26,13 +30,15 @@ double cal(const std::string& fun, const std::vector<double>& params) {
 
 int main() {
     try {
+       
         std::vector<double> numbers = {10, 20, 30, 40}; 
         double sum = cal("add", numbers); 
         std::cout << "Sum: " << sum << std::endl; 
 
         double difference = cal("minus", numbers); 
         std::cout << "Difference: " << difference << std::endl; 
-    } catch (const std::invalid_argument& e) {
+    } 
+    catch (const std::invalid_argument& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
